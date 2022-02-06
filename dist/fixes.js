@@ -47,6 +47,9 @@ exports.fixes = {
             return "attribute FrozenArray<" + group + ">";
         })
             .replace(/float\[\]/gi, 'FrozenArray<float>')
-            .replace(/long\[\]/gi, 'FrozenArray<long>');
+            .replace(/long\[\]/gi, 'FrozenArray<long>')
+            .replace(/(\w+)\[\]/gi, function (match, group) {
+            return "FrozenArray<" + group + ">";
+        });
     },
 };

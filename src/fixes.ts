@@ -45,5 +45,8 @@ export const fixes = {
       })
       .replace(/float\[\]/gi, 'FrozenArray<float>')
       .replace(/long\[\]/gi, 'FrozenArray<long>')
+      .replace(/(\w+)\[\]/gi, (match, group) => {
+        return `FrozenArray<${group}>`
+      })
   },
 }
